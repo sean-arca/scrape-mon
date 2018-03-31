@@ -18,9 +18,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
 // Express
 var app = express();
@@ -54,6 +52,6 @@ db.once("open", function() {
 
 // PORT & Listen
 var PORT = process.env.PORT || 3000;
-app.listen(port, function() {
+app.listen(PORT, function() {
     console.log("Running on Port: " + PORT);
 });
