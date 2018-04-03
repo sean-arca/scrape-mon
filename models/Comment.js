@@ -4,14 +4,17 @@ var mongoose = require("mongoose");
 // Mongoose Schema
 var Schema = mongoose.Schema;
 
-// Create new Schema: Article
+// Create new Schema: Comment
 var CommentSchema = new Schema ({
+    title: {
+        type: String,
+    },
     body: {
         type: String
     }
 });
 
-// Create Article Model using ArticleSchema
+// Create Comment Model using CommentSchema
 var Comment = mongoose.model("Comment", CommentSchema);
 
 module.exports = Comment;
