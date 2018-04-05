@@ -39,4 +39,23 @@ $(document).ready(function () {
             location.reload();
         });
     });
+
+    // Save Comment
+    $(".save-comment").click(function () {
+        var thisId = $(this).data("id");
+
+        // POST input field
+        $.ajax({
+            method: "POST",
+            url: "/articles" + thisId,
+            data: {
+                body: $("#comment-input").val()
+            }
+        }).done(function (data) {
+            $("#comment-modal").modal("hide");
+        });
+        
+        // Empty Input
+        $("#comment-input").val("");
+    });
 });

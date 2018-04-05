@@ -1,13 +1,42 @@
 <div class="articles">
-        {{#each articles}}
-        <div class="card card-inverse">
-            <img class="card-img" src="{{image}}" alt="Card image">
-            <div class="card-img-overlay saved-overlay">
-                <a href="{{link}}" target="_blank"><h4 class="card-title">{{title}}</h4></a>
-                <!-- Delete Button Goes Here -->
-            </div>
-            <button data-id={{_id}} class="btn btn-danger pull-right remove-saved">Remove NomNom</button>
-            <button data-id={{_id}} class="btn btn-secondary pull-right comments">Comments</button>
+    {{#each articles}}
+    <div class="card card-inverse">
+        <img class="card-img" src="{{image}}" alt="Card image">
+        <div class="card-img-overlay saved-overlay">
+            <a href="{{link}}" target="_blank"><h4 class="card-title">{{title}}</h4></a>
+            <!-- Delete Button Goes Here -->
         </div>
-        {{/each}}
+        <button data-id={{_id}} class="btn btn-danger pull-right remove-saved">Remove NomNom</button>
+        <button data-id={{_id}} class="btn btn-secondary pull-right comments" id="checkComments" data-toggle="modal" data-target="#comment-modal">Comments</button>
+    </div>
+    {{/each}}
+
+    <!-- Modal -->
+    <div id="comment-modal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id=""><b>Comments:</b></h4>
+                    <div>
+                        <ul id="commentBody">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <label for="exampleTextarea">Enter New Comment</label>
+                        
+                        <textarea class="form-control" id="comment-input" rows="3"></textarea>
+                    </div>
+                    <div><!--enter saved notes here--></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button data-id={{_id}}  data-dismiss="modal" id="saveButton" class="btn btn-primary save-comment">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

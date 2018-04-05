@@ -29,5 +29,8 @@ module.exports = {
     },
     update: function (query, callback) {
         Article.update({_id: query.id}, {$set: {saved: query.saved}}, {}, callback);
+    },
+    addComment: function (query, callback) {
+        Article.findOneAndUpdate({_id: query.id}, {$push: {comments: query.comments}}, {}, callback);
     }
 };

@@ -1,6 +1,7 @@
 // Dependencies
 var scraper = require("../scripts/scraper");
 var Article = require("../models/Article");
+var Comment = require("../models/Comment");
 var articlesController = require("../controllers/articles");
 var commentsController = require("../controllers/comments");
 
@@ -55,6 +56,28 @@ module.exports = function (router) {
         articlesController.update(req.body, function (err, data) {
             // Goes thru app.js
             res.json(data);
+        });
+    });
+
+    // Create Comment
+    router.post("/articles/:id", function (req, res) {
+        console.log(req.body.body);
+
+        var newComment = new Comment(req.body);
+
+        newComment.save(function (error, doc) {
+            if (error) {
+                console.log(error);
+            } else {
+                // Find by Article id and update comment
+                Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id }).exec(function (err, doc) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.send(doc);
+                    }
+                });
+            }
         });
     });
 };
