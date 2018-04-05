@@ -10,6 +10,10 @@
     height: 90%;
 }
 
+.saved-overlay {
+    height: 80%;
+}
+
 .card-title {
     font-size: 1.75em;
     text-shadow: 2px 2px black;

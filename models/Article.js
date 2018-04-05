@@ -19,7 +19,6 @@ var ArticleSchema = new Schema ({
     image: {
         type: String,
         required: true,
-        unique: true
     },
     date: String,
     saved: {
