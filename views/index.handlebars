@@ -1,14 +1,11 @@
-<div class="articles">
-    <ul>
+<div class="articles align-middle">
         {{#each articles}}
         <div class="card card-inverse">
             <img class="card-img" src="{{image}}" alt="Card image">
             <div class="card-img-overlay">
                 <a href="{{link}}" target="_blank"><h4 class="card-title">{{title}}</h4></a>
-                <button data-id={{_id}} class="btn btn-danger pull-right save-article">Save NomNom</button>
             </div>
+            <button data-id="{{_id}}" class="btn btn-outline-danger pull-right save-article" role="button">Add NomNom To List</button>
         </div>
-        <br>
-        <br> {{/each}}
-    </ul>
+        {{/each}}
 </div>

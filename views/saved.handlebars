@@ -1,0 +1,13 @@
+<div class="articles">
+        {{#each articles}}
+        <div class="card card-inverse">
+            <img class="card-img" src="{{image}}" alt="Card image">
+            <div class="card-img-overlay">
+                <a href="{{link}}" target="_blank"><h4 class="card-title">{{title}}</h4></a>
+                <!-- Delete Button Goes Here -->
+            </div>
+            <button data-id={{_id}} class="btn btn-danger pull-right remove-saved">Remove NomNom</button>
+            <button data-id={{_id}} class="btn btn-secondary pull-right comments">Comments</button>
+        </div>
+        {{/each}}
+</div>

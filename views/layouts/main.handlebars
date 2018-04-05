@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
 
+    <!-- Site CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,28 +29,17 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Scrape Nomster</a>
+        <a class="navbar-brand" href="/">Scrape Nomster</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home
+                <a class="nav-item nav-link active" href="/">Home
                     <span class="sr-only">(current)</span>
                 </a>
-                <a class="nav-item nav-link" href="#">Saved Nom Noms</a>
+                <a class="nav-item nav-link" href="/saved">Saved Nom Noms</a>
+                <a class="btn btn-primary scrape-btn" href="/api/fetch" role="button">Scrape Moar Food!</a>
             </div>
         </div>
     </nav>
-
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1 class="display-3">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or
-            information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg scrape-btn" href="#" role="button">Scrape Moar Food!</a>
-        </p>
-    </div>
 
     <!-- Body -->
     {{{ body }}}
@@ -59,6 +51,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>

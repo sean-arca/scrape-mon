@@ -7,17 +7,21 @@ var scraper = function (cb) {
 
     var articlesArr = [];
 
-    request("http://www.spoonforkbacon.com/", function(error, response, html) {
+    request("http://www.spoonforkbacon.com/recipes/", function(error, response, html) {
         var $ = cheerio.load(html);
 
-        $("div.entry-content").each(function(i, element) {
+        $("div#recipeindex_thumb").each(function(i, element) {
             var result = {};
 
-            result.title = $(this).find("h1.entry-title a").children("span").text();
-            result.link = $(this).find("h1.entry-title").children("a").attr("href");
-            result.image = $(this).children("a img").attr("src");
+            result.title = $(this).children("a").attr("title");
+            result.link = $(this).children("a").attr("href");
+            result.image = $(this).find("img").attr("src");
 
-            if (result.title !== "" && result.link !== "" && result.image !== "") {
+            console.log(result);
+
+            if (result.image === undefined) {
+                console.log("sponsor block");
+            } else if (result.title !== "" && result.link !== "" && result.image !== "") {
                 articlesArr.push(result);
             }
         });
