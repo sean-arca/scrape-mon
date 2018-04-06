@@ -12,6 +12,7 @@ module.exports = {
             for (let i = 0; i < articlesArr.length; i++) {
                 articlesArr[i].data = new Date();
                 articlesArr[i].saved = false;
+                articlesArr[i].comment = [];
             };
 
             console.log(articlesArr);
@@ -31,6 +32,6 @@ module.exports = {
         Article.update({_id: query.id}, {$set: {saved: query.saved}}, {}, callback);
     },
     addComment: function (query, callback) {
-        Article.findOneAndUpdate({_id: query.id}, {$push: {comments: query.comments}}, {}, callback);
+        Article.findOneAndUpdate({_id: query.id}, {$push: {comment: query.comment}}, {}, callback);
     }
 };

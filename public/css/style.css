@@ -1,3 +1,12 @@
+body {
+    font-family: 'Varela Round', sans serif;
+}
+
+.brand {
+    font-family: 'Berkshire Swash', Sans Serif;
+    color: #d9534f;
+}
+
 .card {
     width: 25%;
     height: 100%;

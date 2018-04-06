@@ -9,7 +9,6 @@
         <button data-id={{_id}} class="btn btn-danger pull-right remove-saved">Remove NomNom</button>
         <button data-id={{_id}} class="btn btn-secondary pull-right comments" id="checkComments" data-toggle="modal" data-target="#comment-modal">Comments</button>
     </div>
-    {{/each}}
 
     <!-- Modal -->
     <div id="comment-modal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
@@ -18,9 +17,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id=""><b>Comments:</b></h4>
                     <div>
-                        <ul id="commentBody">
+                        <div id="commentBody">
 
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -34,9 +33,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button data-id={{_id}}  data-dismiss="modal" id="saveButton" class="btn btn-primary save-comment">Save changes</button>
+                    <button data-id="{{_id}}"  data-dismiss="modal" id="saveButton" class="btn btn-primary save-comment">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+    {{/each}}
+
 </div>

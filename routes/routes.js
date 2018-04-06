@@ -59,24 +59,47 @@ module.exports = function (router) {
         });
     });
 
-    // Create Comment
-    router.post("/articles/:id", function (req, res) {
-        console.log(req.body.body);
+    // Create Comment - Save to DB
+    router.post("/comments/:id", function (req, res) {
+        // console.log(req.body.body);
 
         var newComment = new Comment(req.body);
 
-        newComment.save(function (error, doc) {
-            if (error) {
-                console.log(error);
+        newComment.save(function (err, doc) {
+            if (err) {
+                console.log(err);
             } else {
                 // Find by Article id and update comment
-                Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id }).exec(function (err, doc) {
+                Article.findOneAndUpdate({_id: req.params.id}, {$push: {comment: doc._id }}, {new: true}, function (err, newdoc) {
                     if (err) {
                         console.log(err);
                     } else {
-                        res.send(doc);
+                        res.send(newdoc);
                     }
                 });
+            }
+        });
+    });
+
+    // Retrieve Comments
+    router.get("/comments/:id", function (req, res) {
+        // Find by Article id and send comment to browser as json
+        Article.findOne({_id: req.params.id}).populate("comment").exec(function (err, doc) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(doc);
+            }
+        });
+    });
+
+    // Delete Comment
+    router.get("/deleteComment/:id", function (req, res) {
+        Comment.remove({_id: req.params.id}, function (err, newdoc) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect("/saved");
             }
         });
     });
