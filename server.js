@@ -37,7 +37,7 @@ app.set("view engine", "handlebars");
 app.use(router);
 
 // Mongoose db configuration
-mongoose.connect("mongodb://localhost/mongoosearticles");
+// mongoose.connect("mongodb://localhost/mongoosearticles");
 var db = mongoose.connection;
 
 // Mongoose show error
